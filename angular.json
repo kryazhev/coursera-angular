@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tour-of-heroes": {
+    "coursera-angular": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tour-of-heroes",
+            "outputPath": "dist/coursera-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -55,18 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "tour-of-heroes:build"
+            "browserTarget": "coursera-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "tour-of-heroes:build:production"
+              "browserTarget": "coursera-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tour-of-heroes:build"
+            "browserTarget": "coursera-angular:build"
           }
         },
         "test": {
@@ -100,7 +100,7 @@
         }
       }
     },
-    "tour-of-heroes-e2e": {
+    "coursera-angular-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "targets": {
@@ -108,11 +108,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "tour-of-heroes:serve"
+            "devServerTarget": "coursera-angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "tour-of-heroes:serve:production"
+              "devServerTarget": "coursera-angular:serve:production"
             }
           }
         },
@@ -128,5 +128,5 @@
       }
     }
   },
-  "defaultProject": "tour-of-heroes"
+  "defaultProject": "coursera-angular"
 }

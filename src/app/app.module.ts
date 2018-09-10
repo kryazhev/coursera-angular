@@ -15,18 +15,29 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/components/header/header.component';
 import { FooterComponent } from './components/components/footer/footer.component';
+
+import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+
 import { DishdetailComponent } from './components/dishdetail/dishdetail.component';
 
 import { GreetingService } from './services/greeting.service';
 import { DishService } from './services/dish.service';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    HomeComponent,
     MenuComponent,
+    AboutComponent,
+    ContactComponent,
+
     DishdetailComponent,
   ],
   imports: [
@@ -40,6 +51,8 @@ import { DishService } from './services/dish.service';
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
+
+    AppRoutingModule,
   ],
   providers: [GreetingService, DishService],
   bootstrap: [AppComponent]
