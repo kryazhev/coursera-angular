@@ -13,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/components/header/header.component';
+import { FooterComponent } from './components/components/footer/footer.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { DishdetailComponent } from './components/dishdetail/dishdetail.component';
 
@@ -22,8 +24,10 @@ import { DishService } from './services/dish.service';
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    FooterComponent,
     MenuComponent,
-    DishdetailComponent
+    DishdetailComponent,
   ],
   imports: [
     BrowserModule,
