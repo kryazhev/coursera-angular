@@ -1,3 +1,13 @@
+export class Promotion {
+    id: number;
+    name: string;
+    image: string;
+    label: string;
+    price: string;
+    featured: boolean;
+    description: string;
+}
+
 export class Comment {
     rating: number;
     comment: string;
@@ -6,22 +16,26 @@ export class Comment {
 }
 
 export class Dish {
+    id: number;
     name: string;
     image: string;
     category: string;
     label: string;
     price: string;
+    featured: boolean;
     description: string;
-    comments?: Comment[];
+    comments: Comment[];
 }
 
 export const DISHES: Dish[] = [
     {
+        id: 1,
         name: 'Uthappizza',
         image: '/assets/images/uthappizza.png',
         category: 'mains',
         label: 'Hot',
         price: '4.99',
+        featured: true,
         // tslint:disable-next-line:max-line-length
         description: 'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
         comments: [
@@ -58,11 +72,13 @@ export const DISHES: Dish[] = [
         ]
     },
     {
+        id: 2,
         name: 'Zucchipakoda',
         image: '/assets/images/zucchipakoda.png',
         category: 'appetizer',
         label: '',
         price: '1.99',
+        featured: false,
         description: 'Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce',
         comments: [
             {
@@ -98,11 +114,13 @@ export const DISHES: Dish[] = [
         ]
     },
     {
+        id: 3,
         name: 'Vadonut',
         image: '/assets/images/vadonut.png',
         category: 'appetizer',
         label: 'New',
         price: '1.99',
+        featured: false,
         description: 'A quintessential ConFusion experience, is it a vada or is it a donut?',
         comments: [
             {
@@ -138,11 +156,13 @@ export const DISHES: Dish[] = [
         ]
     },
     {
+        id: 4,
         name: 'ElaiCheese Cake',
         image: '/assets/images/elaicheesecake.png',
         category: 'dessert',
         label: '',
         price: '2.99',
+        featured: false,
         description: 'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
         comments: [
             {
@@ -176,5 +196,18 @@ export const DISHES: Dish[] = [
                 date: '2011-12-02T17:57:28.556094Z'
             }
         ]
+    }
+  ];
+
+  export const PROMOTIONS: Promotion[] = [
+    {
+      id: 0,
+      name: 'Weekend Grand Buffet',
+      image: '/assets/images/buffet.png',
+      label: 'New',
+      price: '19.99',
+      featured: true,
+      // tslint:disable-next-line:max-line-length
+      description: 'Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person'
     }
   ];

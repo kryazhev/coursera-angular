@@ -12,20 +12,22 @@ import { MatButtonModule } from '@angular/material/button';
 
 import 'hammerjs';
 
+import { AppRoutingModule } from './app-routing/app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/components/header/header.component';
 import { FooterComponent } from './components/components/footer/footer.component';
 
 import { HomeComponent } from './components/home/home.component';
-import { MenuComponent } from './components/menu/menu.component';
 import { AboutComponent } from './components/about/about.component';
+import { MenuComponent } from './components/menu/menu.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 import { DishdetailComponent } from './components/dishdetail/dishdetail.component';
 
 import { GreetingService } from './services/greeting.service';
 import { DishService } from './services/dish.service';
-import { AppRoutingModule } from './app-routing/app-routing.module';
+import { PromotionService } from './services/promotion.service';
 
 
 @NgModule({
@@ -34,8 +36,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    MenuComponent,
     AboutComponent,
+    MenuComponent,
     ContactComponent,
 
     DishdetailComponent,
@@ -54,7 +56,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
     AppRoutingModule,
   ],
-  providers: [GreetingService, DishService],
+  providers: [GreetingService, DishService, PromotionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
