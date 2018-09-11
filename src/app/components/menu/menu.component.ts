@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Dish, DISHES } from '../../model/dish';
+import { Dish, DISHES } from '../../model/data';
 import { DishService } from '../../services/dish.service';
 
 @Component({

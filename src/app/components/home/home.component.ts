@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Dish, Promotion } from '../../model/dish';
+import { Dish, Promotion } from '../../model/data';
 import { DishService } from '../../services/dish.service';
 import { PromotionService } from '../../services/promotion.service';
 

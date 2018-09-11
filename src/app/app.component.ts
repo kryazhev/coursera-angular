@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GreetingService } from './services/greeting.service';
 import { DishService } from './services/dish.service';
-import { Dish } from './model/dish';
+import { Dish } from './model/data';
 
 @Component({
   selector: 'app-root',

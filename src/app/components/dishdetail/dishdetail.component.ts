@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params} from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Dish } from '../../model/dish';
+import { Dish } from '../../model/data';
 import { DishService } from '../../services/dish.service';
 
 @Component({

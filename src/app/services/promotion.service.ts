@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Promotion, PROMOTIONS } from '../model/dish';
+import { Promotion, PROMOTIONS } from '../model/data';
 
 @Injectable({
   providedIn: 'root'
