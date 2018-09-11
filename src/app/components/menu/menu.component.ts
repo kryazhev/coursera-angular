@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Dish, DISHES } from '../../model/data';
+import { Dish } from '../../model/data';
 import { DishService } from '../../services/dish.service';
 
 @Component({
@@ -15,7 +15,8 @@ export class MenuComponent implements OnInit {
   constructor(private dishService: DishService) { }
 
   ngOnInit() {
-    this.dishes = this.dishService.getDishes();
+    this.dishService.getDishes()
+      .then(result => this.dishes = result);
   }
 
 }

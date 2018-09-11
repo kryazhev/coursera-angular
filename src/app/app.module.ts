@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
@@ -40,6 +41,7 @@ import { LoginComponent } from './components/login/login.component';
 import { GreetingService } from './services/greeting.service';
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
+import { LeaderService } from './services/leader.service';
 
 
 @NgModule({
@@ -75,13 +77,14 @@ import { PromotionService } from './services/promotion.service';
     MatCheckboxModule,
     MatSelectModule,
     MatSlideToggleModule,
+    MatProgressSpinnerModule,
 
     ReactiveFormsModule,
     FormsModule,
 
     AppRoutingModule,
   ],
-  providers: [GreetingService, DishService, PromotionService],
+  providers: [GreetingService, DishService, PromotionService, LeaderService],
   entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })

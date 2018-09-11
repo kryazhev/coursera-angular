@@ -10,13 +10,12 @@ import { Dish } from './model/data';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private greetingService: GreetingService, private dishService: DishService) {}
+  constructor(private greetingService: GreetingService) {}
 
   title: string;
   dishes: Dish[];
 
   ngOnInit(): void {
-    this.dishes = this.dishService.getDishes();
     this.title = this.greetingService.sayHello();
   }
 
