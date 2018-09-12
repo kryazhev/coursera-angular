@@ -16,6 +16,8 @@ import { onValueChanged } from '../../services/utils';
 export class DishdetailComponent implements OnInit {
 
   dish: Dish;
+  dishCopy = null;
+
   dishIds: number[];
 
   prev: number;
@@ -62,6 +64,7 @@ export class DishdetailComponent implements OnInit {
       .pipe(switchMap(params => this.dishService.getDish(+params['id'])))
       .subscribe(result => {
         this.dish = result;
+        this.dishCopy = result;
         this.setPrevNext(result.id);
       });
 
@@ -74,7 +77,7 @@ export class DishdetailComponent implements OnInit {
     this.commentForm.valueChanges
       .subscribe(
         data => { onValueChanged(this.commentForm, this.formErrors, this.validationMessages, data); },
-        errors => this.errors = <any>errors);
+        error => this.errors = <any>error.message);
 
     onValueChanged(this.commentForm, this.formErrors, this.validationMessages);
   }
@@ -92,9 +95,9 @@ export class DishdetailComponent implements OnInit {
   onSubmit() {
     this.comment = this.commentForm.value;
     this.comment.date = new Date().toISOString();
-    console.log(this.commentForm);
 
-    this.dish.comments.push(this.comment);
+    this.dishCopy.comments.push(this.comment);
+    this.dishCopy.save().subscribe(result => this.dish = result);
 
     this.commentForm.reset({
       author: '',

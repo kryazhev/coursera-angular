@@ -47,6 +47,8 @@ import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from './services/utils';
 
 @NgModule({
   declarations: [
@@ -88,9 +90,10 @@ import { LeaderService } from './services/leader.service';
     ReactiveFormsModule,
     FormsModule,
 
+    RestangularModule.forRoot(RestangularConfigFactory),
     AppRoutingModule,
   ],
-  providers: [DishService, PromotionService, LeaderService, {provide: 'BaseURL', useValue: BaseURL}],
+  providers: [DishService, PromotionService, LeaderService, Restangular, {provide: 'BaseURL', useValue: BaseURL}],
   entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })

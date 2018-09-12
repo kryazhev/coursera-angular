@@ -1,33 +1,27 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Leader } from '../model/data';
 
-import { HttpClient } from '@angular/common/http';
-
 import { Observable } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
-import { handleError } from 'src/app/services/utils';
+import { map } from 'rxjs/operators';
+import { Restangular } from 'ngx-restangular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LeaderService {
 
-  constructor(@Inject('BaseURL') private BaseURL, private httpClient: HttpClient) { }
+  constructor(private restangular: Restangular) { }
 
   getLeaders(): Observable<Leader[]> {
-    return this.httpClient.get<Leader[]>(this.BaseURL + 'leaders')
-      .pipe(catchError(handleError));
+    return this.restangular.all('leaders').getList();
   }
 
   getLeader(id: number): Observable<Leader> {
-    return this.httpClient.get<Leader>(this.BaseURL + 'leaders/' + id)
-      .pipe(catchError(handleError));
+    return this.restangular.one('leaders', id).get();
   }
 
   getFeaturedLeader(): Observable<Leader> {
-    return this.httpClient.get<Leader>(this.BaseURL + 'leaders?featured=true')
-      .pipe(map(leaders => leaders[0]))
-      .pipe(catchError(handleError));
+    return this.restangular.all('leaders').getList({ featured: true }).pipe(map(items => items[0]));
   }
 
 }

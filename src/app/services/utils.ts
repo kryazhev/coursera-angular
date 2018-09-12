@@ -1,6 +1,11 @@
 import { FormGroup } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
+import { BaseURL } from '../model/data';
+
+export function RestangularConfigFactory (RestangularProvider) {
+  RestangularProvider.setBaseUrl(BaseURL);
+}
 
 export function onValueChanged(form: FormGroup, formErrors: object, validationMessages: object, data?: any) {
   if (!form) { return; }

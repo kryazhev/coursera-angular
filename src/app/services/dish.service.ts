@@ -1,32 +1,27 @@
-import { Injectable, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Dish } from '../model/data';
 
 import { Observable } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
-import { handleError } from 'src/app/services/utils';
+import { map } from 'rxjs/operators';
+import { Restangular } from 'ngx-restangular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DishService {
 
-  constructor(@Inject('BaseURL') private BaseURL, private httpClient: HttpClient) { }
+  constructor(private restangular: Restangular) { }
 
   getDishes(): Observable<Dish[]> {
-    return this.httpClient.get<Dish[]>(this.BaseURL + 'dishes')
-      .pipe(catchError(handleError));
+    return this.restangular.all('dishes').getList();
   }
 
   getDish(id: number): Observable<Dish> {
-    return this.httpClient.get<Dish>(this.BaseURL + 'dishes/' + id)
-      .pipe(catchError(handleError));
+    return this.restangular.one('dishes', id).get();
   }
 
   getFeaturedDish(): Observable<Dish> {
-    return this.httpClient.get(this.BaseURL + 'dishes?featured=true')
-      .pipe(map(dishes => dishes[0]))
-      .pipe(catchError(handleError));
+    return this.restangular.all('dishes').getList({ featured: true }).pipe(map(items => items[0]));
   }
 
   getDishIds(): Observable<number[]> {
