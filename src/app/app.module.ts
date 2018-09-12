@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MatDialogModule } from '@angular/material/dialog';
@@ -16,7 +18,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
@@ -38,6 +40,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { DishdetailComponent } from './components/dishdetail/dishdetail.component';
 
 import { LoginComponent } from './components/login/login.component';
+
+import { BaseURL } from './model/data';
 
 import { GreetingService } from './services/greeting.service';
 import { DishService } from './services/dish.service';
@@ -65,6 +69,7 @@ import { LeaderService } from './services/leader.service';
     BrowserModule,
     BrowserAnimationsModule,
 
+    HttpClientModule,
     FlexLayoutModule,
 
     MatDialogModule,
@@ -86,7 +91,7 @@ import { LeaderService } from './services/leader.service';
 
     AppRoutingModule,
   ],
-  providers: [GreetingService, DishService, PromotionService, LeaderService],
+  providers: [GreetingService, DishService, PromotionService, LeaderService, {provide: 'BaseURL', useValue: BaseURL}],
   entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })

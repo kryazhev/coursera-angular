@@ -48,3 +48,5 @@ export class Leader {
   }
 
 export const ContactType = ['None', 'Tel', 'Email'];
+
+export const BaseURL = 'http://localhost:3000/';

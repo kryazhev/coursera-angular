@@ -1,38 +1,27 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Promotion } from '../model/data';
 
-import { of, Observable } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PromotionService {
 
-  constructor() { }
+  constructor(@Inject('BaseURL') private BaseURL, private httpClient: HttpClient) { }
 
   getPromotions(): Observable<Promotion[]> {
-    return of(PROMOTIONS).pipe(delay(1000));
+    return this.httpClient.get<Promotion[]>(this.BaseURL + 'promotions');
   }
 
   getPromotion(id: number): Observable<Promotion> {
-    return of(PROMOTIONS.filter((item) => (item.id === id))[0]).pipe(delay(1000));
+    return this.httpClient.get<Promotion>(this.BaseURL + 'promotions/' + id);
   }
 
   getFeaturedPromotion(): Observable<Promotion> {
-    return of(PROMOTIONS.filter((item) => item.featured)[0]).pipe(delay(1000));
+    return this.httpClient.get<Promotion>(this.BaseURL + 'promotions?featured=true').pipe(map(promotions => promotions[0]));
   }
 }
-
-const PROMOTIONS: Promotion[] = [
-  {
-    id: 0,
-    name: 'Weekend Grand Buffet',
-    image: '/assets/images/buffet.png',
-    label: 'New',
-    price: '19.99',
-    featured: true,
-    // tslint:disable-next-line:max-line-length
-    description: 'Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person'
-  }
-];

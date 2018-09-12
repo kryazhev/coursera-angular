@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -50,7 +50,8 @@ export class DishdetailComponent implements OnInit {
 
   @ViewChild('fform') commentFormDirective;
 
-  constructor(private location: Location, private route: ActivatedRoute, private dishService: DishService, private builder: FormBuilder) { }
+  constructor(@Inject('BaseURL') private BaseURL,
+    private location: Location, private route: ActivatedRoute, private dishService: DishService, private builder: FormBuilder) { }
 
   ngOnInit() {
     this.dishService.getDishIds().subscribe(result => this.dishIds = result);
@@ -65,7 +66,7 @@ export class DishdetailComponent implements OnInit {
     this.commentForm = this.builder.group({
       author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
       comment: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
-      rating:  ['5', [Validators.required, Validators.min(1), Validators.max(5)]],
+      rating: ['5', [Validators.required, Validators.min(1), Validators.max(5)]],
     });
 
     this.commentForm.valueChanges
