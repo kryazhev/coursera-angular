@@ -49,6 +49,7 @@ import { LeaderService } from './services/leader.service';
 
 import { RestangularModule, Restangular } from 'ngx-restangular';
 import { RestangularConfigFactory } from './services/utils';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,8 @@ import { RestangularConfigFactory } from './services/utils';
     LoginComponent,
 
     DishdetailComponent,
+
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
