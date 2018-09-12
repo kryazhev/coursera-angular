@@ -50,6 +50,8 @@ export class DishdetailComponent implements OnInit {
 
   @ViewChild('fform') commentFormDirective;
 
+  errors: string;
+
   constructor(@Inject('BaseURL') private BaseURL,
     private location: Location, private route: ActivatedRoute, private dishService: DishService, private builder: FormBuilder) { }
 
@@ -70,7 +72,9 @@ export class DishdetailComponent implements OnInit {
     });
 
     this.commentForm.valueChanges
-      .subscribe(data => onValueChanged(this.commentForm, this.formErrors, this.validationMessages, data));
+      .subscribe(
+        data => { onValueChanged(this.commentForm, this.formErrors, this.validationMessages, data); },
+        errors => this.errors = <any>errors);
 
     onValueChanged(this.commentForm, this.formErrors, this.validationMessages);
   }

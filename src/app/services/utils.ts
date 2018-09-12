@@ -1,4 +1,6 @@
 import { FormGroup } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 
 export function onValueChanged(form: FormGroup, formErrors: object, validationMessages: object, data?: any) {
   if (!form) { return; }
@@ -17,4 +19,16 @@ export function onValueChanged(form: FormGroup, formErrors: object, validationMe
       }
     }
   }
+}
+
+export function handleError(error: HttpErrorResponse) {
+  let errMsg: string;
+
+  if (error.error instanceof ErrorEvent) {
+    errMsg = error.error.message;
+  } else {
+    errMsg = `${error.status} - ${error.statusText || ''} ${error.error}`;
+  }
+
+  return throwError(errMsg);
 }

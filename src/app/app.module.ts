@@ -43,7 +43,6 @@ import { LoginComponent } from './components/login/login.component';
 
 import { BaseURL } from './model/data';
 
-import { GreetingService } from './services/greeting.service';
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
@@ -91,7 +90,7 @@ import { LeaderService } from './services/leader.service';
 
     AppRoutingModule,
   ],
-  providers: [GreetingService, DishService, PromotionService, LeaderService, {provide: 'BaseURL', useValue: BaseURL}],
+  providers: [DishService, PromotionService, LeaderService, {provide: 'BaseURL', useValue: BaseURL}],
   entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })

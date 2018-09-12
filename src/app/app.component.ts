@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GreetingService } from './services/greeting.service';
-import { DishService } from './services/dish.service';
 import { Dish } from './model/data';
 
 @Component({
@@ -10,13 +8,9 @@ import { Dish } from './model/data';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private greetingService: GreetingService) {}
-
-  title: string;
-  dishes: Dish[];
+  constructor() { }
 
   ngOnInit(): void {
-    this.title = this.greetingService.sayHello();
   }
 
 }
