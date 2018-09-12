@@ -54,7 +54,7 @@
               <mat-error *ngIf="formErrors.comment">{{formErrors.comment}}</mat-error>
             </mat-form-field>
           </p>
-          <button type="submit" [disabled]="commentForm.invalid" mat-button class="background-primary text-floral-white">Submit</button>
+          <button type="submit" mat-button [disabled]="commentForm.invalid" [class.background-primary]="commentForm.valid" class="text-floral-white">Submit</button>
         </form>
       </div>
     </div>
