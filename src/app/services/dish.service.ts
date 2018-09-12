@@ -22,6 +22,10 @@ export class DishService {
   getFeaturedDish(): Observable<Dish> {
     return of(DISHES.filter((item) => item.featured)[0]).pipe(delay(500));
   }
+
+  getDishIds(): Observable<number[]> {
+    return of(DISHES.map(item => item.id)).pipe(delay(500));
+  }
 }
 
 export const DISHES: Dish[] = [
