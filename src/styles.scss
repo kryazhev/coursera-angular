@@ -39,3 +39,26 @@ $divider-color:        #BDBDBD;
 .flex-spacer {
   flex: 1 1 auto;
 }
+
+.highlight {
+  background-color: $background-pale;
+  border: 1px solid $primary-color-dark;
+  z-index: 1;
+  transform: scale(1.01);
+}
+
+button:disabled {
+  background-color: grey;
+}
+
+.full-width {
+  width: 95%
+}
+
+.half-width {
+  width: 45%
+}
+
+.form-size {
+  width: 75%
+}
