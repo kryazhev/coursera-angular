@@ -45,8 +45,11 @@ export class Leader {
     abbr: string;
     featured: boolean;
     description: string;
-  }
+}
 
 export const ContactType = ['None', 'Tel', 'Email'];
 
 export const BaseURL = 'http://localhost:3000/';
+
+
+export const DISHES = new Dish[0];

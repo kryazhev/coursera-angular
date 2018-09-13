@@ -46,6 +46,7 @@ import { BaseURL } from './model/data';
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
+import { FeedbackService } from './services/feedback.service';
 
 import { RestangularModule, Restangular } from 'ngx-restangular';
 import { RestangularConfigFactory } from './services/utils';
@@ -96,7 +97,7 @@ import { HighlightDirective } from './directives/highlight.directive';
     RestangularModule.forRoot(RestangularConfigFactory),
     AppRoutingModule,
   ],
-  providers: [DishService, PromotionService, LeaderService, Restangular, {provide: 'BaseURL', useValue: BaseURL}],
+  providers: [DishService, PromotionService, LeaderService, FeedbackService, Restangular, {provide: 'BaseURL', useValue: BaseURL}],
   entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })

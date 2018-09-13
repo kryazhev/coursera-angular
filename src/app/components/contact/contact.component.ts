@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Feedback, ContactType } from '../../model/data';
 import { onValueChanged } from '../../services/utils';
 import { flyInOut } from '../../animations/app.animation';
+import { FeedbackService } from '../../services/feedback.service';
 
 @Component({
   selector: 'app-contact',
@@ -53,7 +54,7 @@ export class ContactComponent implements OnInit {
 
   @ViewChild('fform') feedbackFormDirective;
 
-  constructor(private builder: FormBuilder) {
+  constructor(private builder: FormBuilder, private feedbackService: FeedbackService) {
   }
 
   ngOnInit() {
@@ -76,6 +77,8 @@ export class ContactComponent implements OnInit {
   onSubmit() {
     this.feedback = this.feedbackForm.value;
     console.log(this.feedback);
+    this.feedbackService.addFeedback(this.feedback);
+
     this.feedbackForm.reset({
       firstname: '',
       lastname: '',
